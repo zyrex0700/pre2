@@ -14,7 +14,7 @@ class ModelInfer:
         self.model = joblib.load(Path(model_path))
 
     def predict_signal(self, row: pd.Series, buy_th: float, sell_th: float):
-        x = row[FEATURE_COLUMNS].values.reshape(1, -1)
+        x = pd.DataFrame([row[FEATURE_COLUMNS].to_dict()], columns=FEATURE_COLUMNS)
         probs = self.model.predict_proba(x)[0]
         classes = list(self.model.classes_)
 

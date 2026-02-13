@@ -168,6 +168,10 @@ python scripts/run_live.py
 - مقدار `backtest.symbol_specs` (خصوصاً `point` و `point_value_per_lot`) را مطابق بروکر خود تنظیم کنید.
 - اگر نماد suffix دارد (مثل `XAUUSDm`) همان کلید را هم در `symbol_specs` اضافه کنید.
 
+### sklearn feature-name warning
+- پیام `X does not have valid feature names` یعنی ورودی inference به شکل آرایه خام ارسال شده بود.
+- در این نسخه، inference با DataFrame و نام ستون‌های فیچر انجام می‌شود تا warning حذف شود.
+
 ---
 
 ## Phase 2 Upgrade Path (ONNX + MQL5 EA)

@@ -52,7 +52,7 @@ class Backtester:
             point_value_per_lot = float(spec["point_value_per_lot"])
             lot = float(spec["lot"])
 
-            x = row[FEATURE_COLUMNS].values.reshape(1, -1)
+            x = pd.DataFrame([row[FEATURE_COLUMNS].to_dict()], columns=FEATURE_COLUMNS)
             probs = self.model.model.predict_proba(x)[0]
             classes = list(self.model.model.classes_)
             p_buy = probs[classes.index(1)] if 1 in classes else 0
