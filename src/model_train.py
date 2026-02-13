@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import inspect
 from pathlib import Path
 from typing import Dict
 
@@ -13,7 +14,13 @@ from src.feature_engine import FEATURE_COLUMNS
 
 class ModelTrainer:
     def __init__(self, random_state: int = 42):
-        self.model = LogisticRegression(max_iter=500, random_state=random_state, multi_class="multinomial")
+        # Backward/forward compatibility across sklearn versions.
+        # Some older environments do not expose `multi_class` in constructor.
+        params = inspect.signature(LogisticRegression).parameters
+        kwargs = {"max_iter": 500, "random_state": random_state}
+        if "multi_class" in params:
+            kwargs["multi_class"] = "multinomial"
+        self.model = LogisticRegression(**kwargs)
 
     def train(self, df: pd.DataFrame) -> Dict[str, str]:
         split_idx = int(len(df) * 0.8)
