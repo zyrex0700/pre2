@@ -21,21 +21,21 @@ model:
   random_state: 42
 
 backtest:
-  initial_balance: 10000
+  initial_balance: 200
   spread_points: 20
   slippage_points: 5
   commission_per_lot: 7.0
   risk_reward: 1.5
-  default_lot: 0.1
+  default_lot: 0.01
   symbol_specs:
     EURUSD:
       point: 0.0001
       point_value_per_lot: 10.0
-      lot: 0.1
+      lot: 0.01
     XAUUSD:
       point: 0.01
       point_value_per_lot: 1.0
-      lot: 0.1
+      lot: 0.01
 
 risk:
   risk_per_trade: 0.005

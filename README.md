@@ -116,6 +116,7 @@ python scripts/train_model.py
 ```bash
 python scripts/backtest.py
 ```
+پیش‌فرض فعلی: `initial_balance=200` و `default_lot=0.01`.
 خروجی:
 - `reports/backtest_trades.csv`
 - `reports/backtest_metrics.csv`
