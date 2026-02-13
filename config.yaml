@@ -1,0 +1,51 @@
+app:
+  mode: paper
+  timezone: UTC
+  symbols: [XAUUSD, EURUSD]
+  timeframe: M15
+  lookback_bars: 3000
+  horizon_bars: 12
+  poll_seconds: 30
+
+data:
+  raw_dir: data/raw
+  clean_dir: data/clean
+  feature_dir: data/features
+  label_dir: data/labels
+
+model:
+  algo: logistic_regression
+  confidence_buy: 0.55
+  confidence_sell: 0.55
+  confidence_no_trade: 0.45
+  random_state: 42
+
+backtest:
+  initial_balance: 10000
+  spread_points: 20
+  slippage_points: 5
+  commission_per_lot: 7.0
+  risk_reward: 1.5
+
+risk:
+  risk_per_trade: 0.005
+  max_risk_per_trade: 0.01
+  max_daily_loss: 0.02
+  max_weekly_loss: 0.05
+  max_trades_per_day: 3
+  max_consecutive_errors: 3
+  spread_max_points: 35
+  min_stop_points: 80
+  kill_switch_enabled: true
+
+execution:
+  deviation: 20
+  magic_number: 20260213
+  retry_attempts: 3
+  retry_backoff_sec: 2
+
+
+telegram:
+  enabled: false
+  bot_token_env: TELEGRAM_BOT_TOKEN
+  chat_id_env: TELEGRAM_CHAT_ID
