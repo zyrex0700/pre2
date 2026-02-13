@@ -92,6 +92,8 @@ copy .env.example .env
 
 ## Step-by-step Run
 
+> نکته: هم `python scripts/...` و هم `python -m scripts....` پشتیبانی می‌شود.
+
 ### 1) Health Check
 ```bash
 python scripts/health_check.py

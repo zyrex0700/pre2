@@ -1,3 +1,10 @@
+try:
+    from scripts._bootstrap import bootstrap_project_root
+except ModuleNotFoundError:
+    from _bootstrap import bootstrap_project_root
+
+bootstrap_project_root()
+
 from pathlib import Path
 
 from src.config import ensure_runtime_dirs, load_config, load_mt5_credentials
