@@ -135,6 +135,7 @@ python scripts/run_live.py
 - `risk.risk_per_trade`, `risk.max_daily_loss`, `risk.max_trades_per_day`
 - `risk.spread_max_points`
 - `backtest.commission_per_lot`, `backtest.slippage_points`
+- `backtest.default_lot`, `backtest.symbol_specs` (برای point/value واقعی هر نماد)
 - `execution.retry_attempts`, `execution.retry_backoff_sec`
 - `telegram.enabled`
 
@@ -160,6 +161,11 @@ python scripts/run_live.py
 - confidence thresholdها بالا هستند.
 - spread filter سخت‌گیرانه است.
 - Kill-switch فعال شده.
+
+
+### Unrealistic backtest PnL
+- مقدار `backtest.symbol_specs` (خصوصاً `point` و `point_value_per_lot`) را مطابق بروکر خود تنظیم کنید.
+- اگر نماد suffix دارد (مثل `XAUUSDm`) همان کلید را هم در `symbol_specs` اضافه کنید.
 
 ---
 
